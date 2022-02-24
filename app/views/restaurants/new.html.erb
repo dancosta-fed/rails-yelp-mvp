@@ -6,7 +6,7 @@
       <%= f.input :name %>
       <%= f.input :address %>
       <%= f.input :phone_number %>
-      <%= f.input :category %>
+      <%= f.input :category, collection: Restaurant::CATEGORIES %>
       <%= f.submit "Create", class: "btn btn-primary" %>
       <%= link_to 'Back', restaurants_path, class:"btn btn-dark" %>
     <% end %>

@@ -46,18 +46,16 @@
               <p><%= review.content %></p>
 
         <% @restaurant.reviews.each do |element| %>
-        <li class="list-group-item my-2">
+       
         <%= link_to "Remove",
         review_path(params[:id]),
         method: :delete,
         data: { confirm: "Are you sure?" },
         class: "btn btn-danger justify-content-end" %>
-        </li>
+       
             </li>
           <% end %>
           </div>
-      
-        
       <% end %>
     </ul>
   </div>
