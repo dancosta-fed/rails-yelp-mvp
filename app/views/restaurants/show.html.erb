@@ -1,0 +1,64 @@
+<div class="container">
+  <p id="notice"><%= notice %></p>
+
+  <p>
+    <strong>Name:</strong>
+    <%= @restaurant.name %>
+  </p>
+
+  <p>
+    <strong>Address:</strong>
+    <%= @restaurant.address %>
+  </p>
+
+  <p>
+    <strong>Phone Number:</strong>
+    <%= @restaurant.phone_number %>
+  </p>
+
+  <p>
+    <strong>Category:</strong>
+    <%= @restaurant.category %>
+  </p>
+
+  <div class="container mt-4 text-center">
+    <%= link_to 'Edit', edit_restaurant_path(@restaurant), class: "btn btn-warning" %>
+    <%= link_to 'Back', restaurants_path, class: "btn btn-dark" %>
+    <%= link_to 'Leave a review', new_restaurant_review_path(@restaurant), class: "btn btn-secondary" %>
+  </div>
+
+  <div class="container my-4">
+    <ul class="list-group">
+    <div class="list-group">
+          <% @restaurant.reviews.each do |review| %>
+            <li class="list-group-item">
+              <small>
+                <% count = 0 %>
+                <% 5.times do %>
+                  <% if review.rating > count %>
+                    <i class="fas fa-star"></i>
+                  <% else %>
+                    <i class="far fa-star"></i>
+                  <% end %>
+                  <% count += 1 %>
+                <% end %>
+              </small>
+              <p><%= review.content %></p>
+
+        <% @restaurant.reviews.each do |element| %>
+        <li class="list-group-item my-2">
+        <%= link_to "Remove",
+        review_path(params[:id]),
+        method: :delete,
+        data: { confirm: "Are you sure?" },
+        class: "btn btn-danger justify-content-end" %>
+        </li>
+            </li>
+          <% end %>
+          </div>
+      
+        
+      <% end %>
+    </ul>
+  </div>
+</div>

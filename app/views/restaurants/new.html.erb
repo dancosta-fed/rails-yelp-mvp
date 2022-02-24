@@ -1,0 +1,14 @@
+<div class="container w-75">
+  <h1>Create A New Restaurant</h1>
+
+  <div class="container w-75">
+    <%= simple_form_for [@restaurant] do |f| %>
+      <%= f.input :name %>
+      <%= f.input :address %>
+      <%= f.input :phone_number %>
+      <%= f.input :category %>
+      <%= f.submit "Create", class: "btn btn-primary" %>
+      <%= link_to 'Back', restaurants_path, class:"btn btn-dark" %>
+    <% end %>
+  </div>
+</div>

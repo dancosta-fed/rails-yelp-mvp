@@ -1,0 +1,11 @@
+<div class="container">
+  <h1>Here are your choices</h1>
+
+  <ul class="list-group list-group-flush">
+    <% @restaurants.each do |restaurant| %>
+      <li class="list-group-item"><%= link_to restaurant.name, restaurant_path(restaurant) %></li>
+    <% end %>
+  </ul>
+
+  <%= link_to 'Add New', new_restaurant_path, class: "btn btn-success mt-3" %>
+</div>
