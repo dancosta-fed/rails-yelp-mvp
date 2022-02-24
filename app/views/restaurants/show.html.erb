@@ -29,34 +29,34 @@
 
   <div class="container my-4">
     <ul class="list-group">
-    <div class="list-group">
-          <% @restaurant.reviews.each do |review| %>
-            <li class="list-group-item">
-              <small>
-                <% count = 0 %>
-                <% 5.times do %>
-                  <% if review.rating > count %>
-                    <i class="fas fa-star"></i>
-                  <% else %>
-                    <i class="far fa-star"></i>
-                  <% end %>
-                  <% count += 1 %>
-                <% end %>
-              </small>
-              <p><%= review.content %></p>
+        <div>
+          <li class="list-group-item">
+            <% @restaurant.reviews.each do |review| %>
 
-        <% @restaurant.reviews.each do |element| %>
-       
-        <%= link_to "Remove",
-        review_path(params[:id]),
-        method: :delete,
-        data: { confirm: "Are you sure?" },
-        class: "btn btn-danger justify-content-end" %>
-       
-            </li>
-          <% end %>
-          </div>
-      <% end %>
+              <div class="review mt-3">
+                   <small>
+                  <% count = 0 %>
+                  <% 5.times do %>
+                    <% if review.rating > count %>
+                      <i class="fas fa-star"></i>
+                    <% else %>
+                      <i class="far fa-star"></i>
+                    <% end %>
+                    <% count += 1 %>
+                  <% end %>
+                </small>
+
+                 <p><%= review.content %></p>
+              </div>
+
+              <%= link_to "Remove",
+              restaurants_path,
+              method: :delete,
+              data: { confirm: "Are you sure?" },
+              class: "btn btn-danger justify-content-end" %>
+                
+            <% end %>
+        </div>
     </ul>
   </div>
 </div>
